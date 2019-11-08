@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.servyou.dao.config.MyMapper"/>
+        </plugin>
+
+        <jdbcConnection connectionURL="jdbc:mysql://47.99.94.131:3306/shopping-mall"
+                        driverClass="com.mysql.jdbc.Driver"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.servyou.dao.entity"
+                            targetProject="src/main/java">
+            <property name="immutable" value="true"></property>
+            <property name="constructorBased" value="false"></property>
+            <property name="enableSubPackages" value="false"></property>
+            <property name="trimStrings" value="false"></property>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mappers"
+                         targetProject="src/main/resources"/>
+
+        <javaClientGenerator targetPackage="com.servyou.dao.mapper"
+                             targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+
+
+        <table tableName="pms_brand" domainObjectName="PmsBrandDO">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+    </context>
+</generatorConfiguration>

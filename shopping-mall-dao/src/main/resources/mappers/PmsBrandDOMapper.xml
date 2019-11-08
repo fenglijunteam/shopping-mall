@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.servyou.dao.mapper.PmsBrandDOMapper" >
+  <resultMap id="BaseResultMap" type="com.servyou.dao.entity.PmsBrandDO" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <constructor >
+      <idArg column="id" jdbcType="BIGINT" javaType="java.lang.Long" />
+      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="first_letter" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="sort" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="factory_status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="show_status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="product_count" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="product_comment_count" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="logo" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="big_pic" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="brand_story" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id,name,first_letter,sort,factory_status,show_status,product_count,product_comment_count,logo,big_pic,brand_story
+  </sql>
+  <select id="getList" resultType="com.servyou.dao.entity.PmsBrandDO">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM pms_brand
+    <where>
+      <if test="name != null and name != ''">
+        NAME LIKE "%"#{name}"%"
+      </if>
+    </where>
+  </select>
+</mapper>

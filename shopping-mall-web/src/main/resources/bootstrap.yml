@@ -1,0 +1,12 @@
+server:
+   port: 6001
+
+spring:
+   application:
+      name: shopping-mall		#指定服务名称
+   cloud:
+      consul:
+        host: 47.99.94.131      #consul地址
+        port: 8500           #端口号，默认为8500
+        discovery:
+           serviceName: shopping-mall		#指定服务实例名称

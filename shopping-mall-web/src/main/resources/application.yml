@@ -1,0 +1,44 @@
+
+spring:
+  ###################### mysql ###########################
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.99.94.131:3306/shopping-mall?allowMultiQueries=true&zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+
+
+#xxl:
+#  job:
+#    admin:
+#      addresses: http://127.0.0.1:8081/xxl-job-admin
+#    executor:
+#      appname: shopping-mall
+#      ip:
+#      port: 9999
+#      logpath: logs/ads_scheduler
+#      logretentiondays: 30
+#    accessToken:
+
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.servyou.dao.entity
+  configuration:
+      mapUnderscoreToCamelCase: true
+mapper:
+  mappers:
+  - com.servyou.dao.config.MyMapper
+  not-empty: false
+  identity: MYSQL
+
+#pagehelper分页插件配置
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+  # 打印sql
+logging:
+  level:
+    com.servyou.dao.mapper: debug
