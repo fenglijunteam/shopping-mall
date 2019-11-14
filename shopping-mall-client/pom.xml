@@ -30,4 +30,6 @@
             <artifactId>shopping-mall-common</artifactId>
         </dependency>
     </dependencies>
+
+
 </project>
