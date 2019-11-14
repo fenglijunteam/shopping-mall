@@ -39,4 +39,13 @@ public class BrandController {
                                                @RequestParam(value = "name",required = false) String name) {
         return RichResult.success(brandService.page(name,currentPage,pageSize));
     }
+
+
+    @DeleteMapping("/{id}")
+    @ApiOperation(value = "删除品牌", notes = "删除品牌")
+    public RichResult<Boolean> delete(@PathVariable("id") Long id) {
+        brandService.deleteBrand(id);
+        return RichResult.success(Boolean.TRUE);
+    }
+
 }

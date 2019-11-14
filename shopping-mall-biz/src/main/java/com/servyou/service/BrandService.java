@@ -49,4 +49,13 @@ public class BrandService {
         Page<PmsBrandDO> list = (Page<PmsBrandDO>) pmsBrandDOMapper.getList(name);
         return new PageInfo<>(BeanCopyUtil.convertPage(list,BrandDto.class));
     }
+
+    /**
+     * 根据主键id删除品牌
+     * @param id
+     * @return
+     */
+    public int deleteBrand(Long id) {
+        return pmsBrandDOMapper.deleteByPrimaryKey(id);
+    }
 }
